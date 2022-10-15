@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  dev:
+    build: .
+    image: cv-generator-app
+    command: tail -f /dev/null
+    volumes:
+      - .:/var/app
+      - ./node_modules:/var/app/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: postgres:13
+    volumes:
+      - cv-generator-db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: cv-generator
+      POSTGRES_PASSWORD: localdev
+
+  redis:
+    image: redis:6
+
+volumes:
+  cv-generator-db:

@@ -1,0 +1,7 @@
+<%= turbo_stream.update :new_technology do %>
+  <%= render "form", technology: Technology.new %>
+<% end %>
+
+<%= turbo_stream.append :technologies do %>
+  <%= render @technology %>
+<% end %>

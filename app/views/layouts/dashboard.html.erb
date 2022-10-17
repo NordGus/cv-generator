@@ -14,7 +14,7 @@
     <div class="flex w-full items-stretch justify-around p-2 bg-gray-500 rounded">
       <%= menu_item "People", dashboard_people_path, params[:controller] == "dashboard/people" %>
       <%= menu_item "Companies", dashboard_companies_path, params[:controller] == "dashboard/companies" %>
-      <%= menu_item "Technologies", "#", params[:controller] == "dashboard/technologies" %>
+      <%= menu_item "Technologies", dashboard_technologies_path, params[:controller] == "dashboard/technologies" %>
     </div>
     <div class="grow">
       <%= yield %>

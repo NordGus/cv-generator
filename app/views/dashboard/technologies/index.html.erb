@@ -1,0 +1,7 @@
+<h1>Companies</h1>
+<%= turbo_frame_tag :new_technology, src: new_dashboard_technology_path(format: :turbo_stream) %>
+<%=
+  turbo_frame_tag :technologies,
+                  src: dashboard_technologies_path(format: :turbo_stream),
+                  class: "flex w-full flex-wrap"
+%>

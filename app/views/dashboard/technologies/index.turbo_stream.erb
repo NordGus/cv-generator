@@ -1,0 +1,5 @@
+<%= turbo_stream.append :technologies do %>
+  <% @technologies.each do |technology| %>
+    <%= render technology %>
+  <% end %>
+<% end %>

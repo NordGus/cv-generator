@@ -9,5 +9,9 @@ Rails.application.routes.draw do
     resources :companies, only: %i[index new create update] do
       post :edit, on: :member
     end
+
+    resources :technologies, only: %i[index new create update] do
+      post :edit, on: :member
+    end
   end
 end

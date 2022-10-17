@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root to: "dashboard/people#index"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  namespace :dashboard do
+    resources :people, only: %i[index show update new create destroy] do
+      post :edit, on: :member
+    end
+  end
 end

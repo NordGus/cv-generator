@@ -1,0 +1,2 @@
+module Dashboard::PeopleHelper
+end

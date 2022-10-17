@@ -1,0 +1,5 @@
+<%= form_for [:dashboard, person] do |form| %>
+  <%= form.file_field :avatar %>
+  <%= form.text_field :name %>
+  <%= form.submit %>
+<% end %>

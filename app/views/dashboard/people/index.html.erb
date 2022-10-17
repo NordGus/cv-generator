@@ -1,0 +1,8 @@
+<h1>People</h1>
+<%= turbo_frame_tag :new_person, src: new_dashboard_person_path(format: :turbo_stream) %>
+<%=
+  turbo_frame_tag :people,
+                  src: dashboard_people_path(format: :turbo_stream),
+                  class: "flex w-full flex-wrap"
+%>
+

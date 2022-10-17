@@ -1,0 +1,7 @@
+<%= turbo_stream.update :new_person do %>
+  <%= render "form", person: Person.new %>
+<% end %>
+
+<%= turbo_stream.append :people do %>
+  <%= render @person %>
+<% end %>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="<%= params[:locale] || I18n.default_locale %>">
   <head>
-    <title>CvGenerator</title>
+    <title>CV Generator | Dashboard </title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,7 +10,16 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="flex p-6 w-full">
+    <div class="">
+      <ul>
+        <li>People</li>
+        <li>Companies</li>
+        <li>Technologies</li>
+      </ul>
+    </div>
+    <div class="grow">
+      <%= yield %>
+    </div>
   </body>
 </html>

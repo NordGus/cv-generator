@@ -1,0 +1,7 @@
+<div>
+  <%= link_to "People", dashboard_people_path %> > <%= @person.name %>
+</div>
+
+<div class="flex w-full items-stretch justify-between" id="<%= dom_id(@person) %>_header">
+  <%= render "person_header", person: @person %>
+</div>

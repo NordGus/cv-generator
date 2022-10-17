@@ -1,0 +1,16 @@
+<div class="grow inline-flex items-center">
+  <% if person.avatar.present? %>
+    <%= image_tag person.avatar.variant(:thumb), class: "rounded-full" %>
+  <% else %>
+    <div class="block h-100px w-100px rounded-full bg-gray-500"></div>
+  <% end %>
+  <h1 class="ml-5"><%= person.name %></h1>
+</div>
+<div class="grow inline-flex items-center justify-end">
+  <%=
+    button_to "Edit",
+              edit_dashboard_person_path(person),
+              method: :post,
+              class: "px-3 py-2 rounded bg-blue-500 hover:bg-blue-600 text-white"
+  %>
+</div>

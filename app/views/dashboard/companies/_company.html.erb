@@ -1,0 +1,24 @@
+<%=
+  content_tag :div,
+              id: dom_id(company),
+              class: "inline-flex flex-col w-60 h-60 rounded justify-between m-3 p-1 hover:bg-slate-100" do
+%>
+  <%=
+    content_tag :div,
+                class: "inline-flex flex-col justify-start items-center w-full grow" do
+  %>
+    <% if company.avatar.present? %>
+      <%= image_tag company.avatar.variant(:thumb), class: "rounded-full mt-8 mb-2" %>
+    <% else %>
+      <div class="block h-100px w-100px rounded-full mt-8 mb-2 bg-gray-500"></div>
+    <% end %>
+    <p><%= company.name %></p>
+  <% end %>
+
+  <%=
+    button_to "Edit",
+              edit_dashboard_company_path(company),
+              class: "px-3 py-2 rounded bg-blue-500 hover:bg-blue-600 text-white",
+              form_class: "m-0 p-0 inline-flex items-center justify-center"
+  %>
+<% end %>

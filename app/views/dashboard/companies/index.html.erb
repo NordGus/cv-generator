@@ -1,0 +1,7 @@
+<h1>Companies</h1>
+<%= turbo_frame_tag :new_company, src: new_dashboard_company_path(format: :turbo_stream) %>
+<%=
+  turbo_frame_tag :companies,
+                  src: dashboard_companies_path(format: :turbo_stream),
+                  class: "flex w-full flex-wrap"
+%>

@@ -15,12 +15,20 @@
     <p><%= person.name %></p>
   <% end %>
 
-  <%=
-    button_to "Destroy",
-              dashboard_person_path(person),
-              class: "px-3 py-2 rounded bg-red-500 hover:bg-red-600 text-white",
-              form_class: "m-0 p-0 inline-flex items-center justify-center",
-              method: :delete,
-              data: { turbo_confirm: "Are you sure you want to delete #{person.name} data?" }
-  %>
+  <div class="flex w-full justify-around items-center">
+    <%=
+      button_to "Edit",
+                edit_dashboard_person_path(person),
+                class: "px-3 py-2 rounded bg-blue-500 hover:bg-blue-600 text-white",
+                form_class: "m-0 p-0 inline-flex items-center justify-center"
+    %>
+    <%=
+      button_to "Destroy",
+                dashboard_person_path(person),
+                class: "px-3 py-2 rounded bg-red-500 hover:bg-red-600 text-white",
+                form_class: "m-0 p-0 inline-flex items-center justify-center",
+                method: :delete,
+                data: { turbo_confirm: "Are you sure you want to delete #{person.name} data?" }
+    %>
+  </div>
 <% end %>

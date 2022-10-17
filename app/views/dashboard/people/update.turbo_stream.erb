@@ -1,3 +1,7 @@
 <%= turbo_stream.update "#{dom_id(@person)}_header" do %>
   <%= render "person_header", person: @person %>
 <% end %>
+
+<%= turbo_stream.replace dom_id(@person) do %>
+  <%= render @person %>
+<% end %>

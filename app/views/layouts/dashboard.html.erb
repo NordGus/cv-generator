@@ -10,13 +10,11 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class="flex p-6 w-full">
-    <div class="">
-      <ul>
-        <li>People</li>
-        <li>Companies</li>
-        <li>Technologies</li>
-      </ul>
+  <body class="p-6 w-full">
+    <div class="flex w-full items-stretch justify-around p-3 bg-gray-500 rounded">
+      <%= menu_item "People", dashboard_people_path, params[:controller] == "dashboard/people" %>
+      <%= menu_item "Companies", "#", params[:controller] == "dashboard/companies" %>
+      <%= menu_item "Technologies", "#", params[:controller] == "dashboard/technologies" %>
     </div>
     <div class="grow">
       <%= yield %>

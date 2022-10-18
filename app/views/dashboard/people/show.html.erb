@@ -6,8 +6,10 @@
   <%= render "person_header", person: @person %>
 </div>
 
+<h2>Contact Data</h2>
+
 <%=
-  turbo_frame_tag :contacts,
+  turbo_frame_tag "#{dom_id(@person)}_contacts",
                   src: dashboard_person_data_contacts_path(@person, format: :turbo_stream),
                   class: "flex w-full" do
 %>
@@ -15,5 +17,19 @@
     turbo_frame_tag "#{dom_id(@person)}_new_contact",
                     src: new_dashboard_person_data_contact_path(@person, format: :turbo_stream)
   %>
+<% end %>
 
+<h2>Resumes</h2>
+<%=
+  turbo_frame_tag "#{dom_id(@person)}_resumes",
+                  src: dashboard_person_data_resumes_path(@person, format: :turbo_stream),
+                  class: "flex w-full" do
+%>
+  <%=
+    turbo_frame_tag "#{dom_id(@person)}_new_resume",
+                    src: new_dashboard_person_data_resume_path(@person, format: :turbo_stream)
+  %>
+<% end %>
+
+<%= turbo_frame_tag "#{dom_id(@person)}_opened_resume", class: "block" do %>
 <% end %>

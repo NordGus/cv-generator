@@ -1,0 +1,11 @@
+<%= form_for [:dashboard, person, resume] do |form| %>
+  <%= form.text_field :name %>
+  <%=
+    form.select :locale,
+                options_for_select(
+                  ::Data::Resume.locales.map { |key, value| [key.upcase, ::Data::Resume.locales.key(value)] },
+                  resume.locale
+                )
+  %>
+  <%= form.submit %>
+<% end %>

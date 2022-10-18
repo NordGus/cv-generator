@@ -1,0 +1,6 @@
+<%= turbo_stream.update "#{dom_id(@person)}_opened_resume" do %>
+  <%= content_tag :div, id: "#{dom_id(@person)}_#{dom_id(@resume)}" do %>
+    <%= render "resume_applet", person: @person, resume: @resume %>
+  <% end %>
+<% end %>
+

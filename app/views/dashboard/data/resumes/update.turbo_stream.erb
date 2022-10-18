@@ -1,0 +1,7 @@
+<%= turbo_stream.replace dom_id(@resume) do %>
+  <%= render "resume", person: @person, resume: @resume %>
+<% end %>
+
+<%= turbo_stream.update "#{dom_id(@person)}_#{dom_id(@resume)}" do %>
+  <%= render "resume_applet", person: @person, resume: @resume %>
+<% end %>

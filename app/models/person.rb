@@ -5,6 +5,7 @@ class Person < ApplicationRecord
   end
 
   has_many :contacts, class_name: "Data::Contact", dependent: :destroy
+  has_many :resumes, class_name: "Data::Resume", dependent: :destroy
 
   validates :name, presence: true
 end

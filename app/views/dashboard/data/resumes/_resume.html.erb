@@ -1,0 +1,23 @@
+<%= content_tag :div, id: dom_id(resume) do %>
+  <h4><%= resume.name %></h4>
+  <%=
+    button_to "Open",
+              dashboard_person_data_resume_path(person, resume),
+              class: "px-3 py-2 rounded bg-green-500 hover:bg-green-600 text-white",
+              form_class: "m-0 p-0 inline-flex items-center justify-center"
+  %>
+  <%=
+    button_to "Edit",
+              edit_dashboard_person_data_resume_path(person, resume),
+              class: "px-3 py-2 rounded bg-blue-500 hover:bg-blue-600 text-white",
+              form_class: "m-0 p-0 inline-flex items-center justify-center"
+  %>
+  <%=
+    button_to "Destroy",
+              dashboard_person_data_resume_path(person, resume),
+              class: "px-3 py-2 rounded bg-red-500 hover:bg-red-600 text-white",
+              form_class: "m-0 p-0 inline-flex items-center justify-center",
+              method: :delete,
+              data: { turbo_confirm: "Are you sure you want to delete the resume #{resume.name} data?" }
+  %>
+<% end %>

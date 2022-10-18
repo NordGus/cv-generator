@@ -9,6 +9,11 @@ Rails.application.routes.draw do
         resources :contacts, only: %i[index new create update destroy] do
           post :edit, on: :member
         end
+
+        resources :resumes, only: %i[index new create update destroy] do
+          post :show, on: :member
+          post :edit, on: :member
+        end
       end
     end
 

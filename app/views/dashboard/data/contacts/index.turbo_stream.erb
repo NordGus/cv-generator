@@ -1,5 +1,5 @@
-<%= turbo_stream.append :contacts do %>
+<%= turbo_stream.append "#{dom_id(@person)}_contacts" do %>
   <% @contacts.each do |contact| %>
-    <%= render "data_contact", person: @person, contact: contact %>
+    <%= render "contact", person: @person, contact: contact %>
   <% end %>
 <% end %>

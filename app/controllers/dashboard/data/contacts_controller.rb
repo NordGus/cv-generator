@@ -33,7 +33,7 @@ class Dashboard::Data::ContactsController < ApplicationController
   end
 
   def set_contact
-    @contact = ::Data::Contact.find(params[:id])
+    @contact = @person.contacts.find(params[:id])
   end
 
   def contact_params

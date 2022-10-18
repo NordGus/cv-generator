@@ -1,6 +1,12 @@
 <%= form_for [:dashboard, person, contact] do |form| %>
   <%= form.text_field :content %>
   <%= form.text_field :link %>
-  <%= form.select :icon, options_for_select(::Data::Contact.icons.map { |key, value| [key.titleize, ::Data::Contact.icons.key(value)] }) %>
+  <%=
+    form.select :icon,
+                options_for_select(
+                  ::Data::Contact.icons.map { |key, value| [key.titleize, ::Data::Contact.icons.key(value)] },
+                  contact.icon
+                )
+  %>
   <%= form.submit %>
 <% end %>

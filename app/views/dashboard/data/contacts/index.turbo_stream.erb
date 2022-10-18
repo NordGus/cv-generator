@@ -1,0 +1,5 @@
+<%= turbo_stream.append :contacts do %>
+  <% @contacts.each do |contact| %>
+    <%= render "data_contact", person: @person, contact: contact %>
+  <% end %>
+<% end %>

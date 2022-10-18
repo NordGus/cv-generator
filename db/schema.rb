@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_15_181913) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_18_104106) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_15_181913) do
     t.index ["name"], name: "companies_name_index", unique: true
   end
 
+  create_table "data_contacts", force: :cascade do |t|
+    t.string "content", null: false
+    t.string "link"
+    t.integer "icon", default: 0, null: false
+    t.bigint "person_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["icon"], name: "data_contacts_icon_enum_index"
+    t.index ["person_id"], name: "data_contacts_person_reference"
+  end
+
   create_table "people", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -65,4 +76,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_15_181913) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "data_contacts", "people"
 end

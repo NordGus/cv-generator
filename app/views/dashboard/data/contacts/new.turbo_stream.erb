@@ -1,0 +1,3 @@
+<%= turbo_stream.update "#{dom_id(@person)}_new_contact" do %>
+  <%= render "form", person: @person, contact: @contact %>
+<% end %>

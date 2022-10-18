@@ -1,0 +1,7 @@
+<%= turbo_stream.update "#{dom_id(@person)}_new_contact" do %>
+  <%= render "form", person: @person, contact: ::Data::Contact.new %>
+<% end %>
+
+<%= turbo_stream.append :contacts do %>
+  <%= render "data_contact", person: @person, contact: @contact %>
+<% end %>

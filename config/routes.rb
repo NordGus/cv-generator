@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   namespace :dashboard do
     resources :people, only: %i[index show new create update destroy] do
       post :edit, on: :member
+
+      namespace :data do
+        resources :contacts, only: %i[index new create update destroy] do
+          post :edit, on: :member
+        end
+      end
     end
 
     resources :companies, only: %i[index new create update] do

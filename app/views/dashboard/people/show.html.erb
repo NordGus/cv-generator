@@ -5,3 +5,15 @@
 <div class="flex w-full items-stretch justify-between" id="<%= dom_id(@person) %>_header">
   <%= render "person_header", person: @person %>
 </div>
+
+<%=
+  turbo_frame_tag :contacts,
+                  src: dashboard_person_data_contacts_path(@person, format: :turbo_stream),
+                  class: "flex w-full" do
+%>
+  <%=
+    turbo_frame_tag "#{dom_id(@person)}_new_contact",
+                    src: new_dashboard_person_data_contact_path(@person, format: :turbo_stream)
+  %>
+
+<% end %>

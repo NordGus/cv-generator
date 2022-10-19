@@ -1,0 +1,9 @@
+<p><%= biography.content %></p>
+<div>
+  <%=
+    button_to "Edit",
+              edit_dashboard_person_data_resume_biography_path(person, resume, biography),
+              class: "px-3 py-2 rounded bg-blue-500 hover:bg-blue-600 text-white",
+              form_class: "m-0 p-0 inline-flex items-center justify-center"
+  %>
+</div>

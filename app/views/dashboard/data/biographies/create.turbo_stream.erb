@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "#{dom_id(@resume)}_new_biography" do %>
+  <%= render "biography_preview", person: @person, resume: @resume, biography: @biography %>
+<% end %>

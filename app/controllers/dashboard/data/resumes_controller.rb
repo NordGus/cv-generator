@@ -1,4 +1,4 @@
-class Dashboard::Data::ResumesController < ApplicationController
+class Dashboard::Data::ResumesController < DashboardController
   before_action :set_person
   before_action :set_resume, only: %i[show edit update destroy]
 

@@ -1,0 +1,4 @@
+<%=
+  turbo_frame_tag "#{dom_id(resume)}_#{dom_id(biography)}",
+                  src: dashboard_person_data_resume_biography_path(person, resume, biography, format: :turbo_stream)
+%>

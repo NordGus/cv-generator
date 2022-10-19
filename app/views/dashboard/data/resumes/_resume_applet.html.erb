@@ -1,2 +1,18 @@
 <h3>Resume: <%= resume.name %> [<%= resume.locale.upcase %>]</h3>
-<p>Find me in app/views/dashboard/data/resumes/show.html.erb</p>
+
+<% if resume.biography.present? %>
+  <%=
+    render "dashboard/data/biographies/biography_preview",
+           person: person,
+           resume: resume,
+           biography: resume.biography
+  %>
+<% else %>
+    <%=
+      button_to "Add Biography",
+                dashboard_person_data_resume_biographies_path(person, resume),
+                class: "px-3 py-2 rounded bg-green-500 hover:bg-green-600 text-white",
+                form_class: "m-0 p-0 inline-flex items-center justify-center",
+                form: { id: "#{dom_id(resume)}_new_biography" }
+    %>
+<% end %>

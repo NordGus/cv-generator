@@ -1,4 +1,4 @@
-class Dashboard::Data::ContactsController < ApplicationController
+class Dashboard::Data::ContactsController < DashboardController
   before_action :set_person
   before_action :set_contact, only: %i[edit update destroy]
 

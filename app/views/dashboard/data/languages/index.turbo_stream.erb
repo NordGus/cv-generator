@@ -1,0 +1,5 @@
+<%= turbo_stream.append "#{dom_id(@resume)}_languages" do %>
+  <% @languages.each do |language| %>
+    <%= render "language", person: @person, resume: @resume, language: language %>
+  <% end %>
+<% end %>

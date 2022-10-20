@@ -1,0 +1,3 @@
+<%= turbo_stream.update dom_id(@language) do %>
+  <%= render "form", person: @person, resume: @resume, language: @language %>
+<% end %>

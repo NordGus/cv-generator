@@ -2,6 +2,14 @@ Rails.application.routes.draw do
   root to: "dashboard/people#index"
 
   namespace :dashboard do
+    namespace :data do
+      get 'languages/index'
+      get 'languages/new'
+      get 'languages/create'
+      get 'languages/edit'
+      get 'languages/update'
+      get 'languages/destroy'
+    end
     resources :people, only: %i[index show new create update destroy] do
       post :edit, on: :member
 
@@ -15,6 +23,10 @@ Rails.application.routes.draw do
           post :edit, on: :member
 
           resources :biographies, only: %i[show create update] do
+            post :edit, on: :member
+          end
+
+          resources :languages, only: %i[index new create update destroy] do
             post :edit, on: :member
           end
         end

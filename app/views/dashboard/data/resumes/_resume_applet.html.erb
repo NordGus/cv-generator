@@ -16,3 +16,14 @@
                 form: { id: "#{dom_id(resume)}_new_biography" }
     %>
 <% end %>
+
+<%=
+  turbo_frame_tag "#{dom_id(resume)}_languages",
+                  src: dashboard_person_data_resume_languages_path(person, resume, format: :turbo_stream),
+                  class: "flex w-full" do
+%>
+  <%=
+    turbo_frame_tag "#{dom_id(resume)}_new_language",
+                    src: new_dashboard_person_data_resume_language_path(person, resume, format: :turbo_stream)
+  %>
+<% end %>

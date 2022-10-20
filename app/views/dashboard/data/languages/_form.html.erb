@@ -1,0 +1,11 @@
+<%= form_for language, url: form_url(person, resume, language), method: form_method(language) do |form| %>
+  <%= form.text_field :name %>
+  <%=
+    form.select :level,
+                options_for_select(
+                  ::Data::Language.levels.map { |key, value| [key.upcase, ::Data::Language.levels.key(value)] },
+                  language.level
+                )
+  %>
+  <%= form.submit %>
+<% end %>

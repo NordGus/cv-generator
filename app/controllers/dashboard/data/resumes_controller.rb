@@ -35,7 +35,7 @@ class Dashboard::Data::ResumesController < DashboardController
   end
 
   def set_resume
-    @resume = @person.resumes.find(params[:id])
+    @resume = @person.resumes.includes(:biography).find(params[:id])
   end
 
   def resume_params

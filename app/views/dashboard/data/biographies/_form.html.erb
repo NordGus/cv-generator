@@ -1,6 +1,6 @@
 <%=
   form_for biography,
-           url: dashboard_person_data_resume_biography_path(person, resume, @biography),
+           url: dashboard_person_data_resume_biography_path(person, resume, biography),
            method: :patch do |form|
 %>
   <%= form.text_area :content %>

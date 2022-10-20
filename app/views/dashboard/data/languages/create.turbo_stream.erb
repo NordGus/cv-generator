@@ -1,0 +1,7 @@
+<%= turbo_stream.update "#{dom_id(@resume)}_new_language" do %>
+  <%= render "form", person: @person, resume: @resume, language: ::Data::Language.new %>
+<% end %>
+
+<%= turbo_stream.append "#{dom_id(@resume)}_languages" do %>
+  <%= render "language", person: @person, resume: @resume, language: @language %>
+<% end %>

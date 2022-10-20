@@ -1,0 +1,6 @@
+<%= form_for education, url: education_form_url(person, resume, education), method: education_form_method(education) do |form| %>
+  <%= form.text_field :title %>
+  <%= form.text_field :institution %>
+  <%= form.date_field :date %>
+  <%= form.submit %>
+<% end %>

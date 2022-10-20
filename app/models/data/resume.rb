@@ -4,6 +4,7 @@ class Data::Resume < ApplicationRecord
   has_one :biography, class_name: "Data::Biography", dependent: :destroy
 
   has_many :languages, class_name: "Data::Language", dependent: :destroy
+  has_many :education_history, class_name: "Data::Education", dependent: :destroy
 
   enum locale: {
     en: 0,

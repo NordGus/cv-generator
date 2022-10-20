@@ -1,4 +1,4 @@
-<%= form_for language, url: form_url(person, resume, language), method: form_method(language) do |form| %>
+<%= form_for language, url: language_form_url(person, resume, language), method: language_form_method(language) do |form| %>
   <%= form.text_field :name %>
   <%=
     form.select :level,

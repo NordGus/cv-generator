@@ -1,0 +1,7 @@
+<%= turbo_stream.update "#{dom_id(@resume)}_new_education" do %>
+  <%= render "form", person: @person, resume: @resume, education: ::Data::Education.new %>
+<% end %>
+
+<%= turbo_stream.append "#{dom_id(@resume)}_education_history" do %>
+  <%= render "education", person: @person, resume: @resume, education: @education %>
+<% end %>

@@ -27,3 +27,14 @@
                     src: new_dashboard_person_data_resume_language_path(person, resume, format: :turbo_stream)
   %>
 <% end %>
+
+<%=
+  turbo_frame_tag "#{dom_id(resume)}_education_history",
+                  src: dashboard_person_data_resume_education_index_path(person, resume, format: :turbo_stream),
+                  class: "flex w-full" do
+%>
+  <%=
+    turbo_frame_tag "#{dom_id(resume)}_new_education",
+                    src: new_dashboard_person_data_resume_education_path(person, resume, format: :turbo_stream)
+  %>
+<% end %>

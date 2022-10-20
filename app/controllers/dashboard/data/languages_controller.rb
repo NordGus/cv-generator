@@ -1,4 +1,4 @@
-class Dashboard::Data::LanguagesController < ApplicationController
+class Dashboard::Data::LanguagesController < DashboardController
   before_action :set_person
   before_action :set_resume
   before_action :set_language, only: %i[edit update destroy]

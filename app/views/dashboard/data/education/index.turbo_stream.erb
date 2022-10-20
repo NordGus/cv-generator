@@ -1,0 +1,5 @@
+<%= turbo_stream.append "#{dom_id(@resume)}_education_history" do %>
+  <% @education_history.each do |education| %>
+    <%= render "education", person: @person, resume: @resume, education: education %>
+  <% end %>
+<% end %>

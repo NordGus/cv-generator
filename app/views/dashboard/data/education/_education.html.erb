@@ -1,0 +1,19 @@
+<%= content_tag :div, id: dom_id(education) do %>
+  <h4><%= education.title %></h4>
+  <p><%= education.institution %></p>
+  <p><%= education.date %></p>
+  <%=
+    button_to "Edit",
+              edit_dashboard_person_data_resume_education_path(person, resume, education),
+              class: "px-3 py-2 rounded bg-blue-500 hover:bg-blue-600 text-white",
+              form_class: "m-0 p-0 inline-flex items-center justify-center"
+  %>
+  <%=
+    button_to "Destroy",
+              dashboard_person_data_resume_education_path(person, resume, education),
+              class: "px-3 py-2 rounded bg-red-500 hover:bg-red-600 text-white",
+              form_class: "m-0 p-0 inline-flex items-center justify-center",
+              method: :delete,
+              data: { turbo_confirm: "Are you sure you want to delete #{education.title} from education history?" }
+  %>
+<% end %>

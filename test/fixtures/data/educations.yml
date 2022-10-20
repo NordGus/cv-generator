@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  institution: MyString
+  data: 2022-10-20
+  resume: one
+
+two:
+  title: MyString
+  institution: MyString
+  data: 2022-10-20
+  resume: two

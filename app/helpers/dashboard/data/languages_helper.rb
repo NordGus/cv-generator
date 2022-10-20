@@ -1,5 +1,5 @@
 module Dashboard::Data::LanguagesHelper
-  def form_url(person, resume, language)
+  def language_form_url(person, resume, language)
     if language.new_record?
       dashboard_person_data_resume_languages_path(person, resume)
     else
@@ -7,7 +7,7 @@ module Dashboard::Data::LanguagesHelper
     end
   end
 
-  def form_method(language)
+  def language_form_method(language)
     if language.new_record?
       :post
     else

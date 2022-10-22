@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_20_140625) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_21_095842) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -96,6 +96,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_140625) do
     t.index ["person_id"], name: "data_resumes_person_reference"
   end
 
+  create_table "data_work_experiences", force: :cascade do |t|
+    t.date "from", null: false
+    t.date "to"
+    t.text "description"
+    t.bigint "resume_id", null: false
+    t.bigint "company_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "data_work_experiences_companies_reference"
+    t.index ["resume_id"], name: "data_work_experiences_data_resume_reference"
+  end
+
   create_table "people", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -117,4 +129,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_140625) do
   add_foreign_key "data_educations", "data_resumes", column: "resume_id"
   add_foreign_key "data_languages", "data_resumes", column: "resume_id"
   add_foreign_key "data_resumes", "people"
+  add_foreign_key "data_work_experiences", "companies"
+  add_foreign_key "data_work_experiences", "data_resumes", column: "resume_id"
 end

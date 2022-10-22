@@ -1,0 +1,9 @@
+<%= turbo_stream.update dom_id(@work_experience) do %>
+  <%=
+    render "form",
+           person: @person,
+           resume: @resume,
+           work_experience: @work_experience,
+           companies: @companies
+  %>
+<% end %>

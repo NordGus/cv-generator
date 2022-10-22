@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from: 2022-10-21
+  to: 2022-10-21
+  description: MyText
+  resume: one
+  company: one
+
+two:
+  from: 2022-10-21
+  to: 2022-10-21
+  description: MyText
+  resume: two
+  company: two

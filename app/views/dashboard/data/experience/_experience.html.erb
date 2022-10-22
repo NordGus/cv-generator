@@ -1,0 +1,20 @@
+<%= content_tag :div, id: dom_id(work_experience) do %>
+  <h4><%= work_experience.company.name %></h4>
+  <p><%= work_experience.from %></p>
+  <p><%= work_experience.to %></p>
+  <p><%= work_experience.description %></p>
+  <%=
+    button_to "Edit",
+              edit_dashboard_person_data_resume_experience_path(person, resume, work_experience),
+              class: "px-3 py-2 rounded bg-blue-500 hover:bg-blue-600 text-white",
+              form_class: "m-0 p-0 inline-flex items-center justify-center"
+  %>
+  <%=
+    button_to "Destroy",
+              dashboard_person_data_resume_experience_path(person, resume, work_experience),
+              class: "px-3 py-2 rounded bg-red-500 hover:bg-red-600 text-white",
+              form_class: "m-0 p-0 inline-flex items-center justify-center",
+              method: :delete,
+              data: { turbo_confirm: "Are you sure you want to delete #{work_experience.company.name} experience?" }
+  %>
+<% end %>

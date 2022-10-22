@@ -38,3 +38,14 @@
                     src: new_dashboard_person_data_resume_education_path(person, resume, format: :turbo_stream)
   %>
 <% end %>
+
+<%=
+  turbo_frame_tag "#{dom_id(resume)}_experience",
+                  src: dashboard_person_data_resume_experience_index_path(person, resume, format: :turbo_stream),
+                  class: "flex w-full" do
+%>
+  <%=
+    turbo_frame_tag "#{dom_id(resume)}_new_experience",
+                    src: new_dashboard_person_data_resume_experience_path(person, resume, format: :turbo_stream)
+  %>
+<% end %>

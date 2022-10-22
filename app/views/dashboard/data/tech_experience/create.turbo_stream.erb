@@ -1,0 +1,20 @@
+<%= turbo_stream.update "#{dom_id(@work_experience)}_new_tech_experience" do %>
+  <%=
+    render "form",
+           person: @person,
+           resume: @resume,
+           work_experience: @work_experience,
+           tech_experience: ::Data::TechExperience.new,
+           technologies: @technologies
+  %>
+<% end %>
+
+<%= turbo_stream.append "#{dom_id(@work_experience)}_tech_experience" do %>
+  <%=
+    render "tech_experience",
+           person: @person,
+           resume: @resume,
+           work_experience: @work_experience,
+           tech_experience: @tech_experience
+  %>
+<% end %>

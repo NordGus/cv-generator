@@ -3,6 +3,18 @@
   <p><%= work_experience.from %></p>
   <p><%= work_experience.to %></p>
   <p><%= work_experience.description %></p>
+
+  <%=
+    turbo_frame_tag "#{dom_id(work_experience)}_tech_experience",
+                    src: dashboard_person_data_resume_experience_tech_experience_index_path(person, resume, work_experience, format: :turbo_stream),
+                    class: "flex w-full" do
+  %>
+    <%=
+      turbo_frame_tag "#{dom_id(work_experience)}_new_tech_experience",
+                      src: new_dashboard_person_data_resume_experience_tech_experience_path(person, resume, work_experience, format: :turbo_stream)
+    %>
+  <% end %>
+
   <%=
     button_to "Edit",
               edit_dashboard_person_data_resume_experience_path(person, resume, work_experience),

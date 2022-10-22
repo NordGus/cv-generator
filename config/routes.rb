@@ -28,6 +28,10 @@ Rails.application.routes.draw do
 
           resources :experience, only: %i[index new create update destroy] do
             post :edit, on: :member
+
+            resources :tech_experience, only: %i[index new create update destroy] do
+              post :edit, on: :member
+            end
           end
         end
       end

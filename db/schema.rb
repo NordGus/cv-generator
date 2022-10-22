@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_21_095842) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_22_132521) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -96,6 +96,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_21_095842) do
     t.index ["person_id"], name: "data_resumes_person_reference"
   end
 
+  create_table "data_tech_experiences", force: :cascade do |t|
+    t.string "version"
+    t.bigint "work_experience_id", null: false
+    t.bigint "technology_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["technology_id"], name: "data_tech_experiences_technologies_reference"
+    t.index ["work_experience_id"], name: "data_tech_experiences_data_work_experiences_reference"
+  end
+
   create_table "data_work_experiences", force: :cascade do |t|
     t.date "from", null: false
     t.date "to"
@@ -129,6 +139,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_21_095842) do
   add_foreign_key "data_educations", "data_resumes", column: "resume_id"
   add_foreign_key "data_languages", "data_resumes", column: "resume_id"
   add_foreign_key "data_resumes", "people"
+  add_foreign_key "data_tech_experiences", "data_work_experiences", column: "work_experience_id"
+  add_foreign_key "data_tech_experiences", "technologies"
   add_foreign_key "data_work_experiences", "companies"
   add_foreign_key "data_work_experiences", "data_resumes", column: "resume_id"
 end

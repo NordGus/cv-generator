@@ -1,0 +1,9 @@
+<%=
+  form_for tech_experience,
+           url: tech_experience_form_url(person, resume, work_experience, tech_experience),
+           method: tech_experience_form_method(tech_experience) do |form|
+%>
+  <%= form.text_field :version %>
+  <%= form.collection_radio_buttons :technology_id, technologies, :id, :name %>
+  <%= form.submit %>
+<% end %>

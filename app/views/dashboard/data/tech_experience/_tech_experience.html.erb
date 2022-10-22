@@ -1,0 +1,18 @@
+<%= content_tag :div, id: dom_id(tech_experience) do %>
+  <h4><%= tech_experience.technology.name %></h4>
+  <p><%= tech_experience.version %></p>
+  <%=
+    button_to "Edit",
+              edit_dashboard_person_data_resume_experience_tech_experience_path(person, resume, work_experience, tech_experience),
+              class: "px-3 py-2 rounded bg-blue-500 hover:bg-blue-600 text-white",
+              form_class: "m-0 p-0 inline-flex items-center justify-center"
+  %>
+  <%=
+    button_to "Destroy",
+              dashboard_person_data_resume_experience_tech_experience_path(person, resume, work_experience, tech_experience),
+              class: "px-3 py-2 rounded bg-red-500 hover:bg-red-600 text-white",
+              form_class: "m-0 p-0 inline-flex items-center justify-center",
+              method: :delete,
+              data: { turbo_confirm: "Are you sure you want to delete #{tech_experience.technology.name} experience?" }
+  %>
+<% end %>
